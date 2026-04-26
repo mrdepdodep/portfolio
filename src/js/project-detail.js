@@ -403,13 +403,20 @@
 
     /* buttons */
     const codeBtn = document.querySelector('[data-project-code]');
+    const codeUrl = project.codeUrl || project.repoUrl || project.githubUrl || project.sourceUrl || '';
     if (codeBtn) {
-      codeBtn.href = project.codeUrl || '#';
-      if (!project.codeUrl) codeBtn.setAttribute('aria-disabled', 'true');
+      codeBtn.href = codeUrl || '#';
+      if (codeUrl) {
+        codeBtn.removeAttribute('aria-disabled');
+      } else {
+        codeBtn.setAttribute('aria-disabled', 'true');
+      }
     }
+
     const liveBtn = document.querySelector('[data-project-live]');
+    const liveUrl = project.liveUrl || project.downloadUrl || project.demoUrl || project.projectUrl || '';
     if (liveBtn) {
-      liveBtn.href = project.liveUrl || '#';
+      liveBtn.href = liveUrl || '#';
       const liveLabelKey = project.liveLabelKey || 'projects.detail.openProject';
       liveBtn.dataset.i18n = liveLabelKey;
       liveBtn.textContent = t(liveLabelKey);
@@ -420,7 +427,11 @@
         liveBtn.removeAttribute('download');
         liveBtn.setAttribute('target', '_blank');
       }
-      if (!project.liveUrl) liveBtn.setAttribute('aria-disabled', 'true');
+      if (liveUrl) {
+        liveBtn.removeAttribute('aria-disabled');
+      } else {
+        liveBtn.setAttribute('aria-disabled', 'true');
+      }
     }
 
     /* gallery */
