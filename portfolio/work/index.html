@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Work Statistics | Mr Dep Portfolio</title>
+  <meta name="title" content="Work Statistics | Mr Dep Portfolio" />
+  <meta name="description" content="Current freelance status, delivery process, and collaboration workflow for automation projects." />
+  <meta name="keywords" content="work process, freelance status, project delivery, automation developer" />
+  <meta name="theme-color" content="#6366f1" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <link rel="canonical" href="https://mrdepdodep.github.io/portfolio/work" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mrdepdodep.github.io/portfolio/work" />
+  <meta property="og:title" content="Work Statistics | Mr Dep Portfolio" />
+  <meta property="og:description" content="Current freelance status, delivery process, and collaboration workflow for automation projects." />
+  <meta property="og:image" content="https://mrdepdodep.github.io/portfolio/src/images/dodep-coder.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://mrdepdodep.github.io/portfolio/work" />
+  <meta property="twitter:title" content="Work Statistics | Mr Dep Portfolio" />
+  <meta property="twitter:description" content="Current freelance status, delivery process, and collaboration workflow for automation projects." />
+  <meta property="twitter:image" content="https://mrdepdodep.github.io/portfolio/src/images/dodep-coder.png" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../src/images/dodep-coder.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../src/images/dodep-coder.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../src/images/dodep-coder.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="preload" href="../src/css/main.css" as="style" />
+  <link rel="preload" href="../src/css/work.css" as="style" />
+  <link rel="preload" href="../src/js/main.js" as="script" />
+
+  <link rel="stylesheet" href="../src/css/main.css" />
+  <link rel="stylesheet" href="../src/css/work.css" />
+</head>
+<body class="work-page">
+  <a href="#main-content" class="skip-to-content" style="position:absolute;left:-9999px;z-index:999;padding:1em;background:#6366f1;color:white;text-decoration:none;" data-i18n="common.skipToContent">Skip to main content</a>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <a href="../" class="back-button" aria-label="Go back to home page">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+    <span data-i18n="work.back">Back</span>
+  </a>
+
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="../" class="logo" aria-label="Mr Dep Dodep - Home">Mr Dep Dodep</a>
+      <ul class="nav-menu">
+        <li><a href="../#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="../#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        <li>
+          <a href="#" class="nav-link nav-soon" data-soon-link>
+            <span data-i18n="nav.projects">Projects</span>
+            <span class="soon-tag" aria-hidden="true" data-i18n="common.soon">Soon</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link nav-soon" data-soon-link>
+            <span data-i18n="nav.reviews">Reviews</span>
+            <span class="soon-tag" aria-hidden="true" data-i18n="common.soon">Soon</span>
+          </a>
+        </li>
+        <li class="language-switcher">
+          <button class="lang-btn" id="currentLang" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+            <span class="flag" aria-hidden="true">🇬🇧</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option" data-lang="en" role="menuitem">
+              <span class="flag" aria-hidden="true">🇬🇧</span>
+              <span>English</span>
+            </button>
+            <button class="lang-option" data-lang="uk" role="menuitem">
+              <span class="flag" aria-hidden="true">🇺🇦</span>
+              <span>Українська</span>
+            </button>
+            <button class="lang-option" data-lang="ru" role="menuitem">
+              <span class="flag" aria-hidden="true">🇷🇺</span>
+              <span>Русский</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="work-stats">
+      <div class="container">
+        <header class="work-header">
+          <div class="section-label" data-i18n="work.overviewLabel">Overview</div>
+          <h1 class="work-title" data-i18n="work.title">Statistics & Work Process</h1>
+          <p class="work-subtitle" data-i18n="work.subtitle">Current status and collaboration details</p>
+        </header>
+
+        <section class="stats-grid" aria-label="Work statistics">
+          <article class="stat-card">
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 7h18M8 3v8m8-8v8M5 11h14v10H5z" />
+              </svg>
+            </div>
+            <div class="stat-content">
+              <h3 data-i18n="work.stats.projects">Projects</h3>
+              <div class="stat-status status-waiting" data-i18n="work.stats.projectsSoon">Soon</div>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 10h10M7 14h10M5 3h14l2 18H3L5 3z" />
+              </svg>
+            </div>
+            <div class="stat-content">
+              <h3 data-i18n="work.stats.reviews">Client Reviews</h3>
+              <div class="stat-status status-waiting" data-i18n="work.stats.reviewsSoon">Soon</div>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon status-icon-free" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M9.5 12.5l2 2 3-4" />
+              </svg>
+            </div>
+            <div class="stat-content">
+              <h3 data-i18n="work.stats.status">Current Status</h3>
+              <div class="stat-status status-free">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span data-i18n="work.status.free">Free</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="process-section" aria-label="Client process">
+          <h2 class="section-title" data-i18n="work.client.title">Client Collaboration Process</h2>
+          <p class="section-description" data-i18n="work.client.description">5 steps to successful project delivery</p>
+          <div class="process-steps">
+            <article class="process-step">
+              <div class="step-number">01</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step1.title">Order & Brief</h3>
+                <p data-i18n="work.client.step1.desc">Client places order and provides detailed project description with requirements and expectations</p>
+              </div>
+            </article>
+            <article class="process-step">
+              <div class="step-number">02</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step2.title">Mockup Review</h3>
+                <p data-i18n="work.client.step2.desc">I provide design mockup for review. Client evaluates and suggests changes or approves</p>
+              </div>
+            </article>
+            <article class="process-step">
+              <div class="step-number">03</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step3.title">Base Version</h3>
+                <p data-i18n="work.client.step3.desc">Development of working base version. Client reviews functionality and requests adjustments</p>
+              </div>
+            </article>
+            <article class="process-step">
+              <div class="step-number">04</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step4.title">Final Product</h3>
+                <p data-i18n="work.client.step4.desc">Complete website ready for launch. Client makes final changes and approves</p>
+              </div>
+            </article>
+            <article class="process-step">
+              <div class="step-number">05</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step5.title">Payment & Delivery</h3>
+                <p data-i18n="work.client.step5.desc">Final payment and full project transfer to client with documentation</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="process-section" aria-label="Development process">
+          <h2 class="section-title" data-i18n="work.dev.title">Development Process</h2>
+          <p class="section-description" data-i18n="work.dev.description">5 stages of project development</p>
+          <div class="process-steps">
+            <article class="process-step dev-step">
+              <div class="step-number">01</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step1.title">Structure Planning</h3>
+                <p data-i18n="work.dev.step1.desc">Project structure planning and discussion with client about requirements</p>
+              </div>
+            </article>
+            <article class="process-step dev-step">
+              <div class="step-number">02</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step2.title">Design Creation</h3>
+                <p data-i18n="work.dev.step2.desc">Creating website mockup with all design elements and user interface</p>
+              </div>
+            </article>
+            <article class="process-step dev-step">
+              <div class="step-number">03</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step3.title">Base Development</h3>
+                <p data-i18n="work.dev.step3.desc">Development of base version with HTML structure and CSS styling</p>
+              </div>
+            </article>
+            <article class="process-step dev-step">
+              <div class="step-number">04</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step4.title">Logic Implementation</h3>
+                <p data-i18n="work.dev.step4.desc">Adding JavaScript functionality and interactive elements to the project</p>
+              </div>
+            </article>
+            <article class="process-step dev-step">
+              <div class="step-number">05</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step5.title">Final Adjustments</h3>
+                <p data-i18n="work.dev.step5.desc">Making final changes, testing, and project optimization</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="status-explanation" aria-label="Status explanation">
+          <h2 class="section-title" data-i18n="work.statusInfo.title">Status Explanation</h2>
+          <div class="status-cards">
+            <article class="status-info-card">
+              <div class="status-badge status-free">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span data-i18n="work.status.free">Free</span>
+              </div>
+              <p data-i18n="work.statusInfo.free">Available and ready to accept new orders. Can start working on your project immediately</p>
+            </article>
+            <article class="status-info-card">
+              <div class="status-badge status-working">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span data-i18n="work.status.working">Working</span>
+              </div>
+              <p data-i18n="work.statusInfo.working">Currently working on a project. May accept new orders with delayed start date</p>
+            </article>
+            <article class="status-info-card">
+              <div class="status-badge status-waiting">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span data-i18n="work.status.waiting">Waiting Buyer</span>
+              </div>
+              <p data-i18n="work.statusInfo.waiting">Order received, waiting for client clarifications or feedback to proceed</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p data-i18n="footer.text">&copy; 2025–2026 Mr Dep Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    window.TRANSLATION_BASE_PATH = '../src/translations/';
+  </script>
+  <script src="../src/js/main.js" defer></script>
+  <script src="../src/js/work.js" defer></script>
+</body>
+</html>
