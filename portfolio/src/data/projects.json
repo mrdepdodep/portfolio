@@ -1,0 +1,220 @@
+{
+  "techstore": {
+    "titleKey": "projects.featured.techstore.title",
+    "descriptionKey": "projects.featured.techstore.description",
+    "fullDescriptionKey": "projects.detail.techstore.fullDescription",
+    "pointKeys": [
+      "projects.detail.techstore.point1",
+      "projects.detail.techstore.point2",
+      "projects.detail.techstore.point3",
+      "projects.detail.techstore.point4"
+    ],
+    "skills": [
+      "HTML5",
+      "CSS3",
+      "Vanilla JavaScript",
+      "LocalStorage",
+      "SEO Basics"
+    ],
+    "codeUrl": "https://github.com/mrdepdodep/techstore",
+    "liveUrl": "https://mrdepdodep.github.io/techstore/",
+    "liveLabelKey": "projects.detail.openProject",
+    "images": [
+      {
+        "src": "../../src/images/projects/techstore/1.webp",
+        "alt": "TechStore preview 1",
+        "width": 2880,
+        "height": 1628,
+        "srcset": "../../src/images/projects/techstore/1-1280.webp 1280w, ../../src/images/projects/techstore/1.webp 2880w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/techstore/2.webp",
+        "alt": "TechStore preview 2",
+        "width": 2872,
+        "height": 1590,
+        "srcset": "../../src/images/projects/techstore/2-1280.webp 1280w, ../../src/images/projects/techstore/2.webp 2872w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/techstore/3.webp",
+        "alt": "TechStore preview 3",
+        "width": 2880,
+        "height": 1664,
+        "srcset": "../../src/images/projects/techstore/3-1280.webp 1280w, ../../src/images/projects/techstore/3.webp 2880w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/techstore/4.webp",
+        "alt": "TechStore preview 4",
+        "width": 2876,
+        "height": 1624,
+        "srcset": "../../src/images/projects/techstore/4-1280.webp 1280w, ../../src/images/projects/techstore/4.webp 2876w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      }
+    ],
+    "readme": {
+      "en": "../../projects/content/techstore/README.en.md",
+      "uk": "../../projects/content/techstore/README.uk.md",
+      "ru": "../../projects/content/techstore/README.ru.md"
+    }
+  },
+  "mac-controller-app": {
+    "titleKey": "projects.featured.macApp.title",
+    "descriptionKey": "projects.featured.macApp.description",
+    "fullDescriptionKey": "projects.detail.macApp.fullDescription",
+    "pointKeys": [
+      "projects.detail.macApp.point1",
+      "projects.detail.macApp.point2",
+      "projects.detail.macApp.point3",
+      "projects.detail.macApp.point4"
+    ],
+    "skills": [
+      "SwiftUI",
+      "AppleScript",
+      "macOS Permissions",
+      "Command Parsing",
+      "UI Automation"
+    ],
+    "codeUrl": "https://github.com/mrdepdodep/mac-controller-app",
+    "liveUrl": "https://codeload.github.com/mrdepdodep/mac-controller-app/zip/refs/heads/main",
+    "liveLabelKey": "projects.detail.downloadDmgIntel",
+    "images": [
+      {
+        "src": "../../src/images/projects/mac-controller-app/1.webp",
+        "alt": "Mac Controller App preview 1",
+        "width": 1844,
+        "height": 1200,
+        "srcset": "../../src/images/projects/mac-controller-app/1-1280.webp 1280w, ../../src/images/projects/mac-controller-app/1.webp 1844w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/mac-controller-app/2.webp",
+        "alt": "Mac Controller App preview 2",
+        "width": 1814,
+        "height": 1174,
+        "srcset": "../../src/images/projects/mac-controller-app/2-1280.webp 1280w, ../../src/images/projects/mac-controller-app/2.webp 1814w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/mac-controller-app/3.webp",
+        "alt": "Mac Controller App preview 3",
+        "width": 2880,
+        "height": 1800,
+        "srcset": "../../src/images/projects/mac-controller-app/3-1280.webp 1280w, ../../src/images/projects/mac-controller-app/3.webp 2880w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/mac-controller-app/4.webp",
+        "alt": "Mac Controller App preview 4",
+        "width": 1812,
+        "height": 1180,
+        "srcset": "../../src/images/projects/mac-controller-app/4-1280.webp 1280w, ../../src/images/projects/mac-controller-app/4.webp 1812w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      }
+    ],
+    "readme": {
+      "en": "../../projects/content/mac-controller-app/README.en.md",
+      "uk": "../../projects/content/mac-controller-app/README.uk.md",
+      "ru": "../../projects/content/mac-controller-app/README.ru.md"
+    }
+  },
+  "mac-controller-script": {
+    "titleKey": "projects.featured.macScript.title",
+    "descriptionKey": "projects.featured.macScript.description",
+    "fullDescriptionKey": "projects.detail.macScript.fullDescription",
+    "pointKeys": [
+      "projects.detail.macScript.point1",
+      "projects.detail.macScript.point2",
+      "projects.detail.macScript.point3",
+      "projects.detail.macScript.point4"
+    ],
+    "skills": [
+      "Python 3",
+      "AppleScript",
+      "macOS CLI",
+      "Fuzzy Matching",
+      "System Automation"
+    ],
+    "codeUrl": "https://github.com/mrdepdodep/mac-controller-script",
+    "liveUrl": "https://github.com/mrdepdodep/mac-controller-script/raw/main/mac_control.py",
+    "liveLabelKey": "projects.detail.downloadPy",
+    "images": [
+      {
+        "src": "../../src/images/projects/mac-controller-script/1.webp",
+        "alt": "Mac Controller Script preview 1",
+        "width": 1606,
+        "height": 1126,
+        "srcset": "../../src/images/projects/mac-controller-script/1-1280.webp 1280w, ../../src/images/projects/mac-controller-script/1.webp 1606w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/mac-controller-script/2.webp",
+        "alt": "Mac Controller Script preview 2",
+        "width": 2880,
+        "height": 1800,
+        "srcset": "../../src/images/projects/mac-controller-script/2-1280.webp 1280w, ../../src/images/projects/mac-controller-script/2.webp 2880w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/mac-controller-script/3.webp",
+        "alt": "Mac Controller Script preview 3",
+        "width": 1608,
+        "height": 1146,
+        "srcset": "../../src/images/projects/mac-controller-script/3-1280.webp 1280w, ../../src/images/projects/mac-controller-script/3.webp 1608w",
+        "sizes": "(max-width: 768px) 100vw, 70vw"
+      },
+      {
+        "src": "../../src/images/projects/mac-controller-script/4.webp",
+        "alt": "Mac Controller Script preview 4",
+        "width": 1162,
+        "height": 1140
+      }
+    ],
+    "readme": {
+      "en": "../../projects/content/mac-controller-script/README.en.md",
+      "uk": "../../projects/content/mac-controller-script/README.uk.md",
+      "ru": "../../projects/content/mac-controller-script/README.ru.md"
+    }
+  },
+  "weather-app": {
+    "titleKey": "projects.featured.weather.title",
+    "descriptionKey": "projects.featured.weather.description",
+    "fullDescriptionKey": "projects.detail.weather.fullDescription",
+    "pointKeys": [
+      "projects.detail.weather.point1",
+      "projects.detail.weather.point2",
+      "projects.detail.weather.point3",
+      "projects.detail.weather.point4"
+    ],
+    "skills": [
+      "Kotlin",
+      "Android SDK",
+      "Open-Meteo API",
+      "App Widget",
+      "Notifications"
+    ],
+    "codeUrl": "https://github.com/mrdepdodep/weather-app",
+    "liveUrl": "https://codeload.github.com/mrdepdodep/weather-app/zip/refs/heads/main",
+    "liveLabelKey": "projects.detail.downloadZip",
+    "images": [
+      {
+        "src": "../../src/images/projects/weather-app/1.webp",
+        "alt": "Weather App preview 1",
+        "width": 576,
+        "height": 1280
+      },
+      {
+        "src": "../../src/images/projects/weather-app/2.webp",
+        "alt": "Weather App preview 2",
+        "width": 622,
+        "height": 560
+      }
+    ],
+    "readme": {
+      "en": "../../projects/content/weather-app/README.en.md",
+      "uk": "../../projects/content/weather-app/README.uk.md",
+      "ru": "../../projects/content/weather-app/README.ru.md"
+    }
+  }
+}
