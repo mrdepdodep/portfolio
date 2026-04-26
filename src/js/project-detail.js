@@ -111,6 +111,30 @@
     return window.TRANSLATIONS?.[getLang()]?.[key] || window.TRANSLATIONS?.['en']?.[key] || key;
   }
 
+  function hasValidTranslations() {
+    return Boolean(
+      window.TRANSLATIONS?.en?.['nav.projects'] &&
+      window.TRANSLATIONS?.uk?.['nav.projects'] &&
+      window.TRANSLATIONS?.ru?.['nav.projects']
+    );
+  }
+
+  function waitForTranslations(timeout = 2500) {
+    if (hasValidTranslations()) return Promise.resolve();
+
+    return new Promise(resolve => {
+      const started = Date.now();
+      const check = () => {
+        if (hasValidTranslations() || Date.now() - started >= timeout) {
+          resolve();
+          return;
+        }
+        setTimeout(check, 80);
+      };
+      check();
+    });
+  }
+
   /* ===== README ===== */
 
   async function loadReadme(target, readmePaths) {
@@ -492,6 +516,7 @@
 
   async function init() {
     Events.reset();
+    await waitForTranslations();
 
     const params = new URLSearchParams(window.location.search);
     let id = params.get('id');
@@ -543,11 +568,11 @@
       document.querySelector('[data-detail-shell]')?.classList.remove('is-loading');
     }
 
-    if (window.TRANSLATIONS && Object.keys(window.TRANSLATIONS).length) {
+    if (hasValidTranslations()) {
       populate();
     } else {
       Events.on(document, 'app:lang-changed', populate, { once: true });
-      setTimeout(populate, 600);
+      setTimeout(populate, 2500);
     }
 
     Events.on(document, 'app:lang-changed', () => {

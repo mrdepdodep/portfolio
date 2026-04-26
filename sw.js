@@ -1,7 +1,7 @@
 const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, '');
 const withScope = path => `${SCOPE_PATH}${path}`;
-const CACHE_VERSION = 'v9';
-const ASSETS = [
+const CACHE_VERSION = 'v10';
+const CORE_ASSETS = [
   withScope('/'),
   withScope('/about/'),
   withScope('/work/'),
@@ -23,48 +23,13 @@ const ASSETS = [
   withScope('/src/translations/uk.json'),
   withScope('/src/translations/ru.json'),
   withScope('/src/data/projects.json'),
-  withScope('/src/images/dodep-coder.webp'),
-  withScope('/src/images/dodep-coder-512.webp'),
-  withScope('/src/images/favicon.ico'),
-  withScope('/src/images/project-cards/mac-controller-app-card.webp'),
-  withScope('/src/images/project-cards/mac-controller-app-card-470.webp'),
-  withScope('/src/images/project-cards/mac-controller-script-card.webp'),
-  withScope('/src/images/project-cards/mac-controller-script-card-470.webp'),
-  withScope('/src/images/project-cards/weather-app-card.webp'),
-  withScope('/src/images/project-cards/weather-app-card-470.webp'),
-  withScope('/src/images/project-cards/techstore-card.webp'),
-  withScope('/src/images/project-cards/techstore-card-470.webp'),
-  withScope('/src/images/projects/techstore/1.webp'),
-  withScope('/src/images/projects/techstore/1-1280.webp'),
-  withScope('/src/images/projects/techstore/2.webp'),
-  withScope('/src/images/projects/techstore/2-1280.webp'),
-  withScope('/src/images/projects/techstore/3.webp'),
-  withScope('/src/images/projects/techstore/3-1280.webp'),
-  withScope('/src/images/projects/techstore/4.webp'),
-  withScope('/src/images/projects/techstore/4-1280.webp'),
-  withScope('/src/images/projects/mac-controller-app/1.webp'),
-  withScope('/src/images/projects/mac-controller-app/1-1280.webp'),
-  withScope('/src/images/projects/mac-controller-app/2.webp'),
-  withScope('/src/images/projects/mac-controller-app/2-1280.webp'),
-  withScope('/src/images/projects/mac-controller-app/3.webp'),
-  withScope('/src/images/projects/mac-controller-app/3-1280.webp'),
-  withScope('/src/images/projects/mac-controller-app/4.webp'),
-  withScope('/src/images/projects/mac-controller-app/4-1280.webp'),
-  withScope('/src/images/projects/mac-controller-script/1.webp'),
-  withScope('/src/images/projects/mac-controller-script/1-1280.webp'),
-  withScope('/src/images/projects/mac-controller-script/2.webp'),
-  withScope('/src/images/projects/mac-controller-script/2-1280.webp'),
-  withScope('/src/images/projects/mac-controller-script/3.webp'),
-  withScope('/src/images/projects/mac-controller-script/3-1280.webp'),
-  withScope('/src/images/projects/mac-controller-script/4.webp'),
-  withScope('/src/images/projects/weather-app/1.webp'),
-  withScope('/src/images/projects/weather-app/2.webp')
+  withScope('/src/images/favicon.ico')
 ];
 const CACHE_NAME = `portfolio-static-${CACHE_VERSION}`;
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).catch(error => {
+    caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS)).catch(error => {
       console.error('[SW] Install failed:', error);
       throw error;
     })
@@ -83,8 +48,13 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+  const requestUrl = new URL(event.request.url);
+  const isSameOrigin = requestUrl.origin === self.location.origin;
+  if (!isSameOrigin) return;
 
   const isNavigation = event.request.mode === 'navigate';
+  const pathname = requestUrl.pathname;
+  const isNetworkFirstAsset = /\.(?:css|js|json|html)$/i.test(pathname);
 
   event.respondWith(
     (async () => {
@@ -107,6 +77,20 @@ self.addEventListener('fetch', event => {
           const fallbackHome = await cache.match(withScope('/'));
           if (fallbackHome) return fallbackHome;
 
+          return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+        }
+      }
+
+      if (isNetworkFirstAsset) {
+        try {
+          const networkResponse = await fetch(event.request, { cache: 'no-store' });
+          if (networkResponse && networkResponse.ok && networkResponse.type === 'basic') {
+            cache.put(event.request, networkResponse.clone());
+          }
+          return networkResponse;
+        } catch (_) {
+          const cachedAsset = await cache.match(event.request);
+          if (cachedAsset) return cachedAsset;
           return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
         }
       }

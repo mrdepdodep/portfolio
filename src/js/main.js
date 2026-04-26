@@ -85,6 +85,10 @@ const Logger = {
 };
 
 const Paths = {
+  getSiteBasePrefix() {
+    return window.location.pathname.startsWith('/portfolio/') ? '/portfolio' : '';
+  },
+
   getTranslationBasePath() {
     const path = window.location.pathname;
     if (path.includes('/projects/detail')) return '../../src/translations/';
@@ -96,6 +100,18 @@ const Paths = {
       return '../src/translations/';
     }
     return 'src/translations/';
+  },
+
+  getTranslationBaseCandidates() {
+    const preferred = window.TRANSLATION_BASE_PATH || this.getTranslationBasePath();
+    const siteBase = this.getSiteBasePrefix();
+    const candidates = [
+      preferred,
+      `${siteBase}/src/translations/`,
+      '/src/translations/'
+    ].filter(Boolean);
+
+    return Array.from(new Set(candidates));
   }
 };
 
@@ -117,41 +133,63 @@ window.AppCore.getSignal = () => EventManager.controller.signal;
 
 // ===== DATA LOADING =====
 const DataLoader = {
+  async loadFromBase(basePath) {
+    const [en, uk, ru] = await Promise.all([
+      fetch(`${basePath}en.json`, { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)),
+      fetch(`${basePath}uk.json`, { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)),
+      fetch(`${basePath}ru.json`, { cache: 'no-store' }).then(r => (r.ok ? r.json() : null))
+    ]);
+
+    return { en, uk, ru };
+  },
+
+  isValidTranslations(payload) {
+    if (!payload?.en || !payload?.uk || !payload?.ru) return false;
+    return Boolean(payload.en['nav.projects'] && payload.uk['nav.projects'] && payload.ru['nav.projects']);
+  },
+
   async loadTranslations() {
-    try {
-      const basePath = window.TRANSLATION_BASE_PATH || Paths.getTranslationBasePath();
-      const [en, uk, ru] = await Promise.all([
-        fetch(`${basePath}en.json`).then(r => (r.ok ? r.json() : {})),
-        fetch(`${basePath}uk.json`).then(r => (r.ok ? r.json() : {})),
-        fetch(`${basePath}ru.json`).then(r => (r.ok ? r.json() : {}))
-      ]);
+    const candidates = Paths.getTranslationBaseCandidates();
 
-      Object.assign(State.translations, { en, uk, ru });
-      window.TRANSLATIONS = State.translations;
-
+    for (const basePath of candidates) {
       try {
-        sessionStorage.setItem('translations', JSON.stringify(State.translations));
-      } catch (e) {
-        Logger.warn('Failed to cache translations:', e);
+        const data = await this.loadFromBase(basePath);
+        if (!this.isValidTranslations(data)) {
+          Logger.warn(`Translations incomplete for base path: ${basePath}`);
+          continue;
+        }
+
+        Object.assign(State.translations, data);
+        window.TRANSLATIONS = State.translations;
+
+        try {
+          sessionStorage.setItem('translations.v2', JSON.stringify(State.translations));
+        } catch (e) {
+          Logger.warn('Failed to cache translations:', e);
+        }
+
+        return true;
+      } catch (error) {
+        Logger.warn(`Failed to load translations from ${basePath}:`, error);
       }
+    }
 
-      return true;
-    } catch (error) {
-      Logger.error('Failed to load translations:', error);
-
-      try {
-        const cached = sessionStorage.getItem('translations');
-        if (cached) {
-          Object.assign(State.translations, JSON.parse(cached));
+    try {
+      const cached = sessionStorage.getItem('translations.v2');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (this.isValidTranslations(parsed)) {
+          Object.assign(State.translations, parsed);
           window.TRANSLATIONS = State.translations;
           return true;
         }
-      } catch (e) {
-        Logger.warn('Failed to load cached translations:', e);
       }
-
-      return false;
+    } catch (e) {
+      Logger.warn('Failed to load cached translations:', e);
     }
+
+    Logger.error('Failed to load translations from all sources.');
+    return false;
   }
 };
 

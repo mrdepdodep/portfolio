@@ -56,24 +56,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.skip-to-content {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  z-index: var(--z-skip-link);
-  padding: 0.9rem 1rem;
-  background: var(--accent);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-.skip-to-content:focus,
-.skip-to-content:focus-visible {
-  left: 16px;
-  top: 16px;
-}
-
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
