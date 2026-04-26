@@ -389,10 +389,12 @@ const SmoothScroll = {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       EventManager.add(link, 'click', e => {
         const href = link.getAttribute('href');
-        if (href === '#') return;
+        if (!href || href === '#' || !href.startsWith('#')) return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
 
         e.preventDefault();
-        const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
